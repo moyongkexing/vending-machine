@@ -3,10 +3,8 @@
 ![demo](https://user-images.githubusercontent.com/77483402/117644473-78017580-b1c4-11eb-97a3-885b3dbccc82.gif)
 
 ## Description
-コンピュータサイエンス学習プラットフォーム、Recursion CSの課題作品です。
-  
-素のJavaScriptで、DOMの生成とClickEventの追加を実践しました。
-  
+コンピュータサイエンス学習プラットフォーム、Recursion CSの課題作品です。  
+素のJavaScriptで、DOMの生成とClickEventの追加を実践しました。  
 直感的な命名と、マジックナンバーを避けることを意識しました。
 
 ## Feature
