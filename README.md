@@ -9,6 +9,9 @@ https://venfing-machine.vercel.app/
 素のJavaScriptで、DOMの生成とClickEventの追加を実践しました。  
 直感的な命名と、マジックナンバーを避けることを意識しました。
 
+- Pure JavaScript
+- Tailwind CSS
+
 ## Feature
 - DOM生成
   - 商品名の配列を受け取り、オブジェクトとDOMを動的に生成します。
