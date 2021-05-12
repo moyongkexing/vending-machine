@@ -88,7 +88,7 @@ function generateVendingMachineDom (items, minPrice, maxPrice, mainColor, subCol
 		for (let i = 0; i < products.length; i++) {
 			const btn = createDomWithStyle("button", ["button", "m-4", "px-5", "py-3", "font-bold", "text-sm", `bg-${subColor}-400`]);
 			btn.id = i;
-			btn.innerHTML = i + 1;
+			btn.innerHTML = i+1;
       // スライドショーの更新処理
 			btn.addEventListener("click", function () {
 				const target = document.getElementById("targetDomForTransform");
