@@ -2,36 +2,33 @@ const FRUITS = ["apple", "grape", "orange", "pear", "pineapple", "strawberry"];
 document.getElementById("root").append(generateVendingMachineDom(FRUITS, 270, 300, "red", "yellow"));
 
 function generateVendingMachineDom (items, minPrice, maxPrice, mainColor, subColor) {
-	const products = createObjectList(items, minPrice, maxPrice);
-	const container = createDomWithStyle("div", ["w-1/2", "flex", "flex-col", `bg-${mainColor}-400`]);
-	const header = createDomWithStyle("div", ["w-full", "py-3", "tracking-wider", "font-bold", "text-center", "text-xl", "uppercase", "text-grey-700"]);
-
-	const SIZE_OF_SLIDE_IMAGE = 40;
-	const slider = generateSliderDom(); // スライドショー
-	const display = generateDisplayDom(); // 商品詳細表示画面
-	const controller = generateControllerDom(); // 選択ボタン
-
-	header.innerHTML = "Vending Machine";
-	container.append(header, slider, display, controller);
-	return container;
-
-	// 商品名の配列を受け取り、商品オブジェクトの配列を返す関数。priceの値は、minPriceとmaxPriceの間の10の倍数がランダムに割り当てられる。
-	// 戻り値の例: [{id: "1" name: "apple", price: 270, imgDom: <img>~</img>>}, {...}, {...}]
-	function createObjectList (items, minPrice, maxPrice) {
-		const objects = [];
-		for (let i = 0; i < items.length; i++) {
-			const id = i+1;
-			const slideImg = createDomWithStyle("img", ["w-40"]);
-			slideImg.src = `assets/${items[i]}.jpg`;
-			objects.push({ id: id, name: items[i], price: `${getMultipleOfTen()} yen`, imgDom: slideImg });
-		}
-		return objects;
+  const products = createObjectList(items, minPrice, maxPrice);
+  const container = createDomWithStyle("div", ["w-1/2", "flex", "flex-col", `bg-${mainColor}-400`]);
+  const header = createDomWithStyle("div", ["w-full", "py-3", "tracking-wider", "font-bold", "text-center", "text-xl", "uppercase", "text-grey-700"]);  
+  const SIZE_OF_SLIDE_IMAGE = 40;
+  const slider = generateSliderDom(); // スライドショー
+  const display = generateDisplayDom(); // 商品詳細表示画面
+  const controller = generateControllerDom(); // 選択ボタン 
+  header.innerHTML = "Vending Machine";
+  container.append(header, slider, display, controller);
+  return container; 
+  // 商品名の配列を受け取り、商品オブジェクトの配列を返す関数。priceの値は、minPriceとmaxPriceの間の10の倍数がランダムに割り当てられる。
+  // 戻り値の例: [{id: "1" name: "apple", price: 270, imgDom: <img>~</img>>}, {...}, {...}]
+  function createObjectList (items, minPrice, maxPrice) {
+  	const objects = [];
+  	for (let i = 0; i < items.length; i++) {
+  		const id = i+1;
+  		const slideImg = createDomWithStyle("img", ["w-40"]);
+  		slideImg.src = `assets/${items[i]}.jpg`;
+  		objects.push({ id, name: items[i], price: `${getMultipleOfTen()} yen`, imgDom: slideImg });
+  	}
+  	return objects;
     
     // minPriceとmaxPriceの間の10の倍数をランダムに返す関数
-		function getMultipleOfTen () {
-			return Math.floor(((Math.random() * (maxPrice + 1 - minPrice)) + minPrice) / 10) * 10;
-		}
-	}
+  	function getMultipleOfTen () {
+  		return Math.floor(((Math.random() * (maxPrice + 1 - minPrice)) + minPrice) / 10) * 10;
+  	}
+  }
 
 	// スライドショー部分のDOMを返す関数。
   // 戻り値 div
@@ -79,7 +76,7 @@ function generateVendingMachineDom (items, minPrice, maxPrice, mainColor, subCol
 
 		// 購入ボタン
 		purchaseBtn.innerHTML = "BUY";
-		purchaseBtn.addEventListener("click", function () {
+		purchaseBtn.addEventListener("click", () => {
 			const purchaseItem = products[document.getElementById("targetIndexRewrite").innerHTML - 1];
 			alert(`Thank you for your purchase! This is ${purchaseItem.name} Juice (${purchaseItem.price})`);
 		});
@@ -90,7 +87,7 @@ function generateVendingMachineDom (items, minPrice, maxPrice, mainColor, subCol
 			btn.id = i;
 			btn.innerHTML = i+1;
       // スライドショーの更新処理
-			btn.addEventListener("click", function () {
+			btn.addEventListener("click", () => {
 				const target = document.getElementById("targetDomForTransform");
 
         // Tailwind CSSの w-40 は width: 10rem にあたる
