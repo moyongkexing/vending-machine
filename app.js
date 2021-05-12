@@ -20,7 +20,7 @@ function generateVendingMachineDom (items, minPrice, maxPrice, mainColor, subCol
 	function createObjectList (items, minPrice, maxPrice) {
 		const objects = [];
 		for (let i = 0; i < items.length; i++) {
-			const id = i + 1;
+			const id = i+1;
 			const slideImg = createDomWithStyle("img", ["w-40"]);
 			slideImg.src = `assets/${items[i]}.jpg`;
 			objects.push({ id: id, name: items[i], price: `${getMultipleOfTen()} yen`, imgDom: slideImg });
